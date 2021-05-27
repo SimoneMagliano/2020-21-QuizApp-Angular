@@ -1,27 +1,24 @@
 <div *ngIf="question">
-        <h2>{{question.question}}</h2>        
 
         <div class="p-4" [ngClass]="getClass()">
-
+                <h2>{{question.question}}</h2>
+                <div class='difficulty'>Difficoltà: {{question.difficulty}}</div>
+                
         <app-answers-list 
          [list]="question.answers"
-         [selected]="question.userAnswer"       
          (onUserAnswer) = "setUserAnswer($event)"
          >
         </app-answers-list>
 
         <button (click)="goToPreviusQuestion()" class="btn btn-primary">
-                previus
+                previous
         </button>
 
         <button (click)="goToNextQuestion()" class="btn btn-primary">
                 next
         </button>
 
-        
-
         </div>
-
 
         <pre>
         {{question|json}}
